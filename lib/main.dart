@@ -124,10 +124,7 @@ class _MyHomePageState extends State<MyHomePage> {
     return Scaffold(
       appBar: AppBar(),
       body: Center(
-        child: Column(
-          children: <Widget>[Text(_appVersion)],
-        ),
-      ),
+          child: Text(_appVersion, style: const TextStyle(fontSize: 20))),
     );
     // This trailing comma makes auto-formatting nicer for build methods.
   }
