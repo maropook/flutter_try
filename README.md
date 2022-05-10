@@ -72,7 +72,7 @@ class AppInfo {
 
 ```
 
-`MethodChannel`で呼び出すアプリのバージョン取得のメソッド`appInfo`は、KotlinとSwift側でそれぞれ定義していきます。
+`MethodChannel`で呼び出すアプリのバージョン取得のメソッド`getAppVersion`は、KotlinとSwift側でそれぞれ定義していきます。
 
 
 
@@ -174,19 +174,18 @@ class MainActivity: FlutterActivity() {
 
 # エミュレーター上で実行
 
-上記コードをエミュレーター上でbuild runすると「Get Battery Level」ボタンと「Unknown battery level.」テキストが表示されます。
+上記コードをエミュレーター上でbuild runするとアプリのバージョンが取得できます。
+M1macでビルドする際は，こちらの記事を参考にしてみてください
+https://zenn.dev/maropook/articles/e4ac4c79d0648b
 
-<img width="429" alt="スクリーンショット 2019-11-05 15.02.42.png" src="https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/6380/283a2b22-531b-55f7-1c2c-f0d950496848.png">
+<img width="438" alt="スクリーンショット 2022-05-10 10 38 05" src="https://user-images.githubusercontent.com/84751550/167525568-6c8cd894-6d4a-4b71-b8cf-8fffa6c95d96.png">
 
-ボタンタップで、端末のバッテリー残量を取得。テキスト反映されます。
-<img width="429" alt="スクリーンショット 2019-11-05 15.02.52.png" src="https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/6380/aeb8f205-a0e1-1a01-5eb4-9ddfb9f1f2ca.png">
+できました。
 
-サクッと呼べましたね。
 
 # Swift側のネイティブコード（iOS）
 続いてSwift（iOS）のコードを書いていきます。
 AppDelegate.swiftを開く
-<img width="695" alt="スクリーンショット 2019-11-05 15.33.01.png" src="https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/6380/3602a28a-6451-8707-9714-e013fa6e7b89.png">
 
 ## getAppVersionを実装
 
@@ -263,11 +262,10 @@ import Flutter
 
 ```
 
-iOS Simulatorを起動すると、Android同様にボタンとテキストが表示されます。
-<img width="439" alt="スクリーンショット 2019-11-05 15.44.14.png" src="https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/6380/042e6350-65f7-eae5-de30-55071e4e57cc.png">
+iOS Simulatorを起動すると、アプリのバージョンが表示されるはずです。
 
-ボタンをタップするとMethodChannel経由で`receiveBatteryLevel()`が呼び出されテキストが更新されます。
-<img width="439" alt="スクリーンショット 2019-11-05 15.45.45.png" src="https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/6380/99bf72ac-21f4-e1ab-66c8-cf060bbf6241.png">
+<img width="438" alt="スクリーンショット 2022-05-10 10 38 05" src="https://user-images.githubusercontent.com/84751550/167525699-b54d3792-f1ae-441d-9a74-61d1673d0c70.PNG">
+
 1.0.0と表示されています。バージョンを取得できているのでSwift側で書いたコードが動いていることがわかりますね。
 
 
